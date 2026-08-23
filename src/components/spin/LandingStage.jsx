@@ -32,11 +32,11 @@ export default function LandingStage({ campaign, onEnter, onHistory, loading }) 
         transition={{ duration: 0.7, ease: 'easeOut' }}
         className="flex flex-col items-center"
       >
-        <div className="mb-6 h-28 w-28 overflow-hidden rounded-2xl ring-1 ring-white/20 sm:h-36 sm:w-36">
+        <div className="mb-6 h-20 w-20 overflow-hidden rounded-full ring-2 ring-white/30 sm:h-24 sm:w-24">
           <Image
             src={campaign?.logo_url || 'https://media.base44.com/images/public/6a8b514d6fd65d0c16a62dfc/795eddbbc_10.png'}
             alt={name}
-            className="h-full w-full object-contain"
+            className="h-full w-full object-cover"
           />
         </div>
 
