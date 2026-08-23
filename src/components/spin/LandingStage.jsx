@@ -43,7 +43,7 @@ export default function LandingStage({ campaign, onEnter, onHistory, loading }) 
         <p className="mb-3 text-xs uppercase tracking-[0.4em]" style={{ color: accent, letterSpacing: '0.4em' }}>
           {name}
         </p>
-        <h1 className="max-w-2xl font-heading text-4xl font-semibold leading-[1.1] sm:text-5xl md:text-6xl" style={{ color: ink }}>
+        <h1 className="max-w-2xl font-heading text-4xl font-bold leading-[1.1] sm:text-5xl md:text-6xl" style={{ color: ink }}>
           {headline}
         </h1>
         <p className="mt-5 max-w-md font-body text-base leading-relaxed sm:text-lg" style={{ color: ink, opacity: 0.82 }}>
