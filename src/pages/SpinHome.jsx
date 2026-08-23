@@ -32,7 +32,7 @@ export default function SpinHome() {
       .finally(() => setLoadingCampaign(false));
   }, []);
 
-  const bg = campaign?.background_url || 'https://media.base44.com/images/public/6a8b514d6fd65d0c16a62dfc/1494da417_image.png';
+  const bg = campaign?.background_url || 'https://media.base44.com/images/public/6a8b514d6fd65d0c16a62dfc/cd39fa5cb_WhatsAppImage2026-08-24at14854AM.jpeg';
   const primary = campaign?.primary_color || '#8C193C';
   const ink = campaign?.ink_color || '#FAF7F0';
   const accent = campaign?.accent_color || '#E8B84B';
