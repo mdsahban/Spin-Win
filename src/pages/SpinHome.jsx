@@ -32,7 +32,7 @@ export default function SpinHome() {
       .finally(() => setLoadingCampaign(false));
   }, []);
 
-  const bg = campaign?.background_url;
+  const bg = campaign?.background_url || 'https://media.base44.com/images/public/6a8b514d6fd65d0c16a62dfc/1494da417_image.png';
   const primary = campaign?.primary_color || '#8C193C';
   const ink = campaign?.ink_color || '#FAF7F0';
   const accent = campaign?.accent_color || '#E8B84B';
@@ -59,8 +59,8 @@ export default function SpinHome() {
 
   return (
     <div className="relative min-h-[100svh] w-full overflow-hidden" style={{ backgroundColor: primary, color: ink }}>
-      {bg && <div className="absolute inset-0 z-0 bg-cover bg-center opacity-25" style={{ backgroundImage: `url(${bg})` }} />}
-      <div className="absolute inset-0 z-0 bg-gradient-to-b from-black/30 via-transparent to-black/50" />
+      {bg && <div className="absolute inset-0 z-0 bg-cover bg-center opacity-70" style={{ backgroundImage: `url(${bg})` }} />}
+      <div className="absolute inset-0 z-0 bg-gradient-to-b from-black/10 via-transparent to-black/20" />
 
       <div className="absolute left-4 top-4 z-20">
         <LangToggle ink={ink} accent={accent} />
