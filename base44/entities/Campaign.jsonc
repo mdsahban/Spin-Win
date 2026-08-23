@@ -1,0 +1,122 @@
+{
+  "name": "Campaign",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "name_hi": {
+      "type": "string"
+    },
+    "logo_url": {
+      "type": "string"
+    },
+    "background_url": {
+      "type": "string"
+    },
+    "headline": {
+      "type": "string"
+    },
+    "headline_hi": {
+      "type": "string"
+    },
+    "subheadline": {
+      "type": "string"
+    },
+    "subheadline_hi": {
+      "type": "string"
+    },
+    "cta_text": {
+      "type": "string",
+      "default": "Spin Now"
+    },
+    "cta_text_hi": {
+      "type": "string"
+    },
+    "primary_color": {
+      "type": "string",
+      "default": "#8C193C"
+    },
+    "accent_color": {
+      "type": "string",
+      "default": "#E8B84B"
+    },
+    "ink_color": {
+      "type": "string",
+      "default": "#FAF7F0"
+    },
+    "max_spins": {
+      "type": "number",
+      "default": 2
+    },
+    "reset_days": {
+      "type": "number",
+      "default": 7
+    },
+    "start_date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "end_date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "active": {
+      "type": "boolean",
+      "default": true
+    },
+    "redemption_instructions": {
+      "type": "string"
+    },
+    "redemption_instructions_hi": {
+      "type": "string"
+    },
+    "terms": {
+      "type": "string"
+    },
+    "terms_hi": {
+      "type": "string"
+    },
+    "win_message": {
+      "type": "string"
+    },
+    "win_message_hi": {
+      "type": "string"
+    },
+    "lose_message": {
+      "type": "string"
+    },
+    "lose_message_hi": {
+      "type": "string"
+    },
+    "claim_url": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "name"
+  ],
+  "rls": {
+    "read": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}
