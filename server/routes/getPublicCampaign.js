@@ -1,19 +1,30 @@
-import { createClientFromRequest } from 'npm:@base44/sdk@0.8.40';
+import { supabase } from '../supabase.js';
 
-export default async function(req) {
+export const getPublicCampaignHandler = async (req, res) => {
   try {
-    const base44 = createClientFromRequest(req);
-    const campaigns = await base44.asServiceRole.entities.Campaign.filter({ active: true }, '-created_date', 10);
+    const { data: campaigns } = await supabase
+      .from('campaign')
+      .select('*')
+      .eq('active', true)
+      .order('created_at', { ascending: false })
+      .limit(10);
+      
     const campaign = campaigns && campaigns[0];
-    if (!campaign) return Response.json({ error: 'No active campaign' }, { status: 404 });
+    if (!campaign) return res.status(404).json({ error: 'No active campaign' });
 
     const now = Date.now();
     const start = campaign.start_date ? new Date(campaign.start_date).getTime() : null;
     const end = campaign.end_date ? new Date(campaign.end_date).getTime() : null;
     const inRange = (!start || start <= now) && (!end || end >= now);
 
-    const prizes = await base44.asServiceRole.entities.Prize.filter({ active: true }, 'sort_order', 60);
-    return Response.json({
+    const { data: prizes } = await supabase
+      .from('prize')
+      .select('*')
+      .eq('active', true)
+      .order('sort_order', { ascending: true })
+      .limit(60);
+
+    res.json({
       campaign: {
         id: campaign.id,
         name: campaign.name,
@@ -34,7 +45,7 @@ export default async function(req) {
         claim_url: campaign.claim_url,
         active: inRange
       },
-      prizes: prizes.map(p => ({
+      prizes: (prizes || []).map(p => ({
         id: p.id,
         name: p.name,
         image_url: p.image_url,
@@ -44,6 +55,6 @@ export default async function(req) {
       }))
     });
   } catch (error) {
-    return Response.json({ error: error.message }, { status: 500 });
+    res.status(500).json({ error: error.message });
   }
-}
+};

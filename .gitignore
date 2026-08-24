@@ -29,4 +29,7 @@ dist-ssr
 
 .env
 .vite
-base44/.app.jsonc
+
+# Secrets — never commit these
+server/.env
+server/node_modules

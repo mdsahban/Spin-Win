@@ -10,7 +10,7 @@ import { useLang } from '@/lib/i18n';
 export default function LandingStage({ campaign, onEnter, onHistory, loading }) {
   const { t, lang } = useLang();
   const accent = campaign?.accent_color || '#E8B84B';
-  const ink = campaign?.ink_color || '#FAF7F0';
+  const ink = '#1a1a1a'; // Force dark text on the new light background
   const pick = (hi, en) => (lang === 'hi' ? (hi || en) : en);
   const name = pick(campaign?.name_hi, campaign?.name) || t('brand.tagline');
   const headline = pick(campaign?.headline_hi, campaign?.headline) || t('landing.headline');
@@ -32,9 +32,9 @@ export default function LandingStage({ campaign, onEnter, onHistory, loading }) 
         transition={{ duration: 0.7, ease: 'easeOut' }}
         className="flex flex-col items-center"
       >
-        <div className="mb-6 h-20 w-20 overflow-hidden rounded-full ring-2 ring-white/30 sm:h-24 sm:w-24">
+        <div className="mb-6 h-24 w-24 overflow-hidden rounded-full ring-2 ring-white/30 sm:h-28 sm:w-28 shadow-xl">
           <Image
-            src={campaign?.logo_url || 'https://media.base44.com/images/public/6a8b514d6fd65d0c16a62dfc/795eddbbc_10.png'}
+            src={campaign?.logo_url || '/logo.jpg'}
             alt={name}
             className="h-full w-full object-cover"
           />

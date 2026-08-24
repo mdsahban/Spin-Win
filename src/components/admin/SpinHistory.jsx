@@ -52,7 +52,7 @@ export default function SpinHistory() {
               <tbody>
                 {spins.map(s => (
                   <tr key={s.id} className="border-t border-border/60">
-                    <td className="py-2.5 pr-4 text-muted-foreground">{new Date(s.created_date).toLocaleString()}</td>
+                    <td className="py-2.5 pr-4 text-muted-foreground">{new Date(s.created_at).toLocaleString()}</td>
                     <td className="py-2.5 pr-4">{s.phone_normalized || '—'}</td>
                     <td className="py-2.5 pr-4">
                       {s.result_type === 'won' ? <Badge className="bg-emerald-600 text-white">Won</Badge> : <Badge variant="secondary">Try again</Badge>}
